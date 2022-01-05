@@ -1,0 +1,59 @@
+use dbtpmongo
+
+db
+-
+
+db.Productos.insert([{"name":"Producto15","price":900,"url":"urlimage5"}, 
+{"name":"Producto16","price":1200,"url":"urlimage6"}, 
+ {"name":"Producto17","price":1700,"url":"urlimage7"}, 
+{"name":"Producto18","price":3360,"url":"urlimage8"},
+{"name":"Producto19","price":4320,"url":"urlimage9"}, 
+{"name":"Producto110","price":4990,"url":"urlimage10"}])
+
+-------------------------------
+ db.createCollection("mensajes")
+ db.createCollection("Productos")
+ show collections
+ db.Productos.insertOne({"name":"Producto1","price":120,"url":"urlimage1"}) 
+ db.Productos.insertOne({"name":"Producto2","price":580,"url":"urlimage2"}) 
+ db.Productos.insertOne({"name":"Producto3","price":10,"url":"urlimage3"}) 
+db.Productos.insertOne({"name":"Producto4","price":1320,"url":"urlimage4"})
+db.Productos.insertOne({"name":"Producto5","price":900,"url":"urlimage5"}) 
+ db.Productos.insertOne({"name":"Producto6","price":1200,"url":"urlimage6"}) 
+ db.Productos.insertOne({"name":"Producto7","price":1700,"url":"urlimage7"}) 
+db.Productos.insertOne({"name":"Producto8","price":3360,"url":"urlimage8"})
+db.Productos.insertOne({"name":"Producto9","price":4320,"url":"urlimage9"}) 
+db.Productos.insertOne({"name":"Producto10","price":4990,"url":"urlimage10"})
+db.Productos.find()
+
+db.mensajes.inse
+{"name":"user1","mensaje":"hola","email":"unemail1"},
+{"name":"user2","mensaje":"dfgd","email":"unemail2"},
+{"name":"user3","mensaje":"rtbdf","email":"unemail3"},
+{"name":"user4","mensaje":"dsvsvsvsvs","email":"unemail4"},
+{"name":"user5","mensaje":"svsvsvsvs","email":"unemail5"}
+])
+
+db.mensajes.find()
+
+db.Productos.createIndex({"_id" : 1})   
+db.mensajes.createIndex({"_id" : 1})  
+ 
+db.Productos.count()
+db.mensajes.count()
+
+db.Productos.find({"price":{$lte:1000}
+
+db.Productos.find({"price":{$gte:3000}})
+
+db.Productos.find({$and:[{"price":{$gt:1000}},{"price":{$lt:3000}}]})
+
+db.Productos.find({},{"name":1,"_id":0}).sort({"price": 1}).skip(3).limit(1).pretty()
+
+ db.Productos.update({},{$set:{"stock":100}},{upsert:false,multi:true})
+ 
+ db.Productos.update({"price":{$gte:4000}},{$set:{"stock":0}},false,true)
+
+db.Productos.deleteMany({"price":{$lte:1000}})
+
+db.createUser({user:"onlyread", pwd:"1234",roles:[{role:"read",db:"Productos"}]})
